@@ -1,0 +1,15 @@
+<div class="card">
+  <h2>Register</h2>
+
+  <input type="text" [(ngModel)]="name" placeholder="Full Name">
+
+  <input type="email" [(ngModel)]="email" placeholder="Email (e.g., user@example.com)">
+
+  <input type="password" [(ngModel)]="password" placeholder="Password (min 6 characters)">
+
+  <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password">
+
+  <button (click)="register()">Register</button>
+
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</div>

@@ -1,0 +1,173 @@
+<div *ngIf="!isLoggedIn">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="isLoggedIn">
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>💰 Expense Tracker</h1>
+    <div class="navbar-actions">
+      <input type="file" #fileInput (change)="importExpenses($event)" accept=".json" style="display: none;">
+      <button (click)="exportExpenses()" class="nav-btn export-btn">📤 Export</button>
+      <button (click)="fileInput.click()" class="nav-btn import-btn">📥 Import</button>
+      <button (click)="clearAllExpenses()" class="nav-btn clear-btn">🗑️ Clear All</button>
+      <button (click)="logout()" class="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Statistics Cards -->
+    <div class="stats-section">
+      <div class="stat-card">
+        <div class="stat-value">₹{{ getTotalExpenses() }}</div>
+        <div class="stat-label">Total Expenses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">₹{{ getAverageExpense() }}</div>
+        <div class="stat-label">Average</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">₹{{ getMaxExpense() }}</div>
+        <div class="stat-label">Highest</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ getFilteredExpenses().length }}</div>
+        <div class="stat-label">Transactions</div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Expense Form -->
+    <div class="form-card">
+      <h2>{{ editingIndex !== null ? '✏️ Edit Expense' : '➕ Add New Expense' }}</h2>
+      <div class="form-grid">
+        <input 
+          type="text" 
+          [(ngModel)]="expenseTitle" 
+          placeholder="Expense title (e.g., Groceries)"
+          class="form-input">
+        
+        <input 
+          type="number" 
+          [(ngModel)]="amount" 
+          placeholder="Amount"
+          class="form-input">
+        
+        <select [(ngModel)]="category" class="form-input category-select">
+          <option value="">Select Category</option>
+          <option *ngFor="let cat of categories" [value]="cat.name">
+            {{ cat.icon }} {{ cat.name }}
+          </option>
+        </select>
+        
+        <input 
+          type="date" 
+          [(ngModel)]="date"
+          class="form-input">
+      </div>
+      
+      <div class="form-buttons">
+        <button (click)="addExpense()" class="btn-primary">
+          {{ editingIndex !== null ? 'Update Expense' : 'Add Expense' }}
+        </button>
+        <button *ngIf="editingIndex !== null" (click)="cancelEdit()" class="btn-secondary">
+          Cancel
+        </button>
+      </div>
+      
+      <div class="data-info">
+        <small>💾 Data is automatically saved to your browser</small>
+      </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="search-filter-section">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="🔍 Search expenses..."
+        class="search-input">
+      
+      <div class="filter-categories">
+        <button 
+          *ngFor="let cat of categories"
+          (click)="filterCategory = (filterCategory === cat.name ? '' : cat.name)"
+          [class.active]="filterCategory === cat.name"
+          class="filter-btn">
+          {{ cat.icon }} {{ cat.name }}
+        </button>
+        <button 
+          *ngIf="filterCategory"
+          (click)="filterCategory = ''"
+          class="filter-btn active clear-filter">
+          Clear Filter
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+
+      <!-- Expenses List -->
+      <div class="expenses-list-section">
+        <h2>📊 Your Expenses</h2>
+        
+        <div *ngIf="getFilteredExpenses().length === 0" class="empty-state">
+          <p>📭 No expenses yet. Add one to get started!</p>
+        </div>
+
+        <div *ngFor="let expense of getFilteredExpenses(); let i = index" class="expense-card">
+          <div class="expense-header">
+            <div class="expense-title-section">
+              <span class="category-icon">{{ getCategoryIcon(expense.category) }}</span>
+              <div>
+                <h3>{{ expense.title }}</h3>
+                <p class="category-badge" [style.backgroundColor]="getCategoryColor(expense.category)">
+                  {{ expense.category }}
+                </p>
+              </div>
+            </div>
+            <div class="expense-amount">₹{{ expense.amount }}</div>
+          </div>
+          
+          <div class="expense-footer">
+            <span class="expense-date">📅 {{ expense.date }}</span>
+            <div class="expense-actions">
+              <button (click)="editExpense(i)" class="btn-icon edit">✏️</button>
+              <button (click)="deleteExpense(i)" class="btn-icon delete">🗑️</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Category Breakdown -->
+      <div class="category-breakdown-section">
+        <h2>📈 By Category</h2>
+        
+        <div *ngIf="getExpensesByCategory().length === 0" class="empty-state">
+          <p>No data yet</p>
+        </div>
+
+        <div *ngFor="let item of getExpensesByCategory()" class="category-item">
+          <div class="category-info">
+            <span class="category-name">{{ item.category }}</span>
+            <span class="category-amount">₹{{ item.amount }}</span>
+          </div>
+          <div class="category-bar">
+            <div 
+              class="category-fill" 
+              [style.width]="getCategoryPercentage(item.amount) + '%'"
+              [style.backgroundColor]="getCategoryColor(item.category)">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

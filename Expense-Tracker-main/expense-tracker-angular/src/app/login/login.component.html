@@ -1,0 +1,11 @@
+<div class="card">
+  <h2>Login</h2>
+
+  <input type="email" [(ngModel)]="email" placeholder="Enter email (e.g., user@example.com)" [disabled]="isLoading">
+
+  <input type="password" [(ngModel)]="password" placeholder="Password" [disabled]="isLoading">
+
+  <button (click)="login()" [disabled]="isLoading">{{ isLoading ? 'Logging in...' : 'Login' }}</button>
+
+  <p>Don't have an account? <a routerLink="/register">Register</a></p>
+</div>
