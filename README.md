@@ -48,15 +48,13 @@ The application allows users to **register, login, and manage their personal exp
 ![Expense](https://github.com/user-attachments/assets/c6e6e8db-2064-4b1f-9b07-b37e3ecd2ca1)
 
 ---
+
 ## 📁 Project Structure
-
-
 Expense-Tracker
 │
 ├── expense-tracker-angular # Frontend (Angular)
 ├── expense-tracker-backend # Backend (Node.js + Express)
 └── README.md
-
 
 ---
 
@@ -67,7 +65,13 @@ Expense-Tracker
 ```bash
 git clone https://github.com/SrinivasSurisetti/Expense-Tracker.git
 cd Expense-Tracker
+```
+
 2️⃣ Backend Setup
+cd expense-tracker-backend
+npm install
+nodemon server.js
+
 cd expense-tracker-backend
 npm install
 nodemon server.js
@@ -117,26 +121,18 @@ If you found this project useful, consider giving it a star ⭐ on GitHub.
 
 ---
 
-### Important small fix
-In your screenshot you accidentally wrote:
+### One mistake you made
+You wrote everything inside **one bash block**, like:
 
+git clone ...
+cd ...
+2️⃣ Backend Setup
+...
 
-Expense-Tracker | ├── expense-tracker-angular ...
+That breaks Markdown rendering.
 
-
-That happens when **code block formatting is broken**.
-
-Always keep project structure inside **triple backticks**:
-
-structure here
+Commands should be **separate code blocks**, not mixed with text.
 
 ---
 
-If you want, I can also give you a **much more professional README version with:**
-
-- Tech stack badges  
-- Live demo section  
-- API endpoints section  
-- Architecture diagram  
-
-This makes your GitHub project look **10× more professional for placements.**
+If you want, I can also give you a **much cleaner README used by professional GitHub projects (with tech badges + demo section + architecture diagram)** that will make this project look **far stronger on LinkedIn and placements**.
