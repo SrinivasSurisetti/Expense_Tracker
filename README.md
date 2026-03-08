@@ -48,8 +48,9 @@ The application allows users to **register, login, and manage their personal exp
 ![Expense](https://github.com/user-attachments/assets/c6e6e8db-2064-4b1f-9b07-b37e3ecd2ca1)
 
 ---
+## 📁 Project Structure
 
-## 📂 Project Structure
+
 Expense-Tracker
 │
 ├── expense-tracker-angular # Frontend (Angular)
@@ -88,7 +89,7 @@ User registers an account
 
 User logs in with credentials
 
-Server generates a JWT token
+Server generates a JWT Token
 
 Token is used to authorize API requests
 
@@ -98,39 +99,44 @@ Edit expenses
 
 Expense categories
 
-Monthly expense analytics chart
+Monthly analytics charts
 
-Export expenses as PDF or CSV
+Export expenses as PDF / CSV
 
 👨‍💻 Author
 
 Srinivas Surisetti
 B.Tech CSE – Aditya College of Engineering and Technology
 
-📧 Email: srinivassurisetti14@gmail.com
+📧 srinivassurisetti14@gmail.com
 
 ⭐ Support
 
-If you found this project helpful, please consider starring the repository.
+If you found this project useful, consider giving it a star ⭐ on GitHub.
 
 
 ---
 
-✅ This version is:
-- **Cleaner**
-- **GitHub friendly**
-- **ATS / recruiter friendly**
-- Properly structured
+### Important small fix
+In your screenshot you accidentally wrote:
+
+
+Expense-Tracker | ├── expense-tracker-angular ...
+
+
+That happens when **code block formatting is broken**.
+
+Always keep project structure inside **triple backticks**:
+
+structure here
 
 ---
 
-⚠️ One thing you should fix in your original code:  
-You wrote backend running on **4200**, but **Angular also runs on 4200**. Usually:
+If you want, I can also give you a **much more professional README version with:**
 
+- Tech stack badges  
+- Live demo section  
+- API endpoints section  
+- Architecture diagram  
 
-Backend → 5000
-Frontend → 4200
-
----
-
-If you want, I can also show you **how to add a demo GIF to the README** (this instantly makes your project look 3× more professional on GitHub).
+This makes your GitHub project look **10× more professional for placements.**
