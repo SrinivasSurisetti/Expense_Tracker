@@ -50,11 +50,13 @@ The application allows users to **register, login, and manage their personal exp
 ---
 
 ## 📁 Project Structure
+```
 Expense-Tracker
 │
 ├── expense-tracker-angular # Frontend (Angular)
 ├── expense-tracker-backend # Backend (Node.js + Express)
 └── README.md
+```
 
 ---
 
