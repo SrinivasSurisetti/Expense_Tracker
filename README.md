@@ -39,13 +39,13 @@ The application allows users to **register, login, and manage their personal exp
 ## 📸 Application Screenshots
 
 ### Login Page
-![Login](https://github.com/user-attachments/assets/0ea7dd51-4fc3-47e0-9ea5-28740d92bed7)
+![WhatsApp Image 2026-03-07 at 22 49 22](https://github.com/user-attachments/assets/46a8b159-1ed7-4e64-b565-e6ea02edb6ea)
 
 ### Dashboard
-![Dashboard](https://github.com/user-attachments/assets/4f37c440-ee65-4397-9252-5458b0ef87ab)
+![WhatsApp Image 2026-03-07 at 22 49 53](https://github.com/user-attachments/assets/a1b01750-f81c-4145-bd54-85335b90e40e)
 
 ### Expense Management
-![Expense](https://github.com/user-attachments/assets/c6e6e8db-2064-4b1f-9b07-b37e3ecd2ca1)
+![WhatsApp Image 2026-03-07 at 22 49 36](https://github.com/user-attachments/assets/42ac97f9-1fbf-4566-97f9-d793c321e363)
 
 ---
 
@@ -120,19 +120,3 @@ If you found this project useful, consider giving it a star ⭐ on GitHub.
 
 
 ---
-
-### One mistake you made
-You wrote everything inside **one bash block**, like:
-
-git clone ...
-cd ...
-2️⃣ Backend Setup
-...
-
-That breaks Markdown rendering.
-
-Commands should be **separate code blocks**, not mixed with text.
-
----
-
-If you want, I can also give you a **much cleaner README used by professional GitHub projects (with tech badges + demo section + architecture diagram)** that will make this project look **far stronger on LinkedIn and placements**.
